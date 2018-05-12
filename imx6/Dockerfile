@@ -1,0 +1,7 @@
+# This is a comment
+FROM ubuntu:14.04
+MAINTAINER Yang Zhengguang zhengguang.yang@advantech.com.cn
+RUN apt-get update \
+	&& apt-get install -y git
+ 
+
