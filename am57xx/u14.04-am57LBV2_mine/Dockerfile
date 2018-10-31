@@ -2,9 +2,6 @@ FROM ubuntu:14.04
 
 MAINTAINER Advantech
 
-RUN apt-get install python-software-properties
-RUN add-apt-repository ppa:webupd8team/java
-RUN apt-get install software-properties-common
 # yocto
 RUN apt-get update
 RUN apt-get install -y gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev xterm
@@ -33,6 +30,9 @@ RUN apt-get install -y ftp
 # jenkins
 RUN apt-get install -y openssh-server
 RUN mkdir /var/run/sshd
+RUN apt-get install python-software-properties
+RUN add-apt-repository ppa:webupd8team/java
+RUN apt-get install software-properties-common
 RUN apt-get install oracle-java8-installer
 
 # adv account (password: adv)
