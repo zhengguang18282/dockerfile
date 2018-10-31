@@ -30,10 +30,12 @@ RUN apt-get install -y ftp
 # jenkins
 RUN apt-get install -y openssh-server
 RUN mkdir /var/run/sshd
-RUN apt-get install python-software-properties
-RUN add-apt-repository ppa:webupd8team/java
-RUN apt-get install software-properties-common
-RUN apt-get install oracle-java8-installer
+#RUN echo "deb http://cn.archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse" >> /etc/apt/sources.list
+RUN apt-get install -y python-software-properties
+RUN apt-get install -y software-properties-common
+RUN add-apt-repository -y ppa:webupd8team/java
+RUN apt-get update
+RUN apt-get install -y oracle-java8-installer
 
 # adv account (password: adv)
 RUN useradd -m -k /home/adv adv -p ajLGz61mdCP76 -s /bin/bash -G sudo
