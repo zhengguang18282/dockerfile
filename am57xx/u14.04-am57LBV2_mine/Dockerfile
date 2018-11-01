@@ -2,10 +2,6 @@ FROM ubuntu:14.04
 
 MAINTAINER Advantech
 
-RUN apt-get install -y python-software-properties
-RUN apt-get install -y software-properties-common
-RUN add-apt-repository -y ppa:openjdk-r/ppa
-
 # yocto
 RUN apt-get update
 RUN apt-get install -y gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev xterm
@@ -34,6 +30,10 @@ RUN apt-get install -y ftp
 # jenkins
 RUN apt-get install -y openssh-server
 RUN mkdir /var/run/sshd
+RUN apt-get install -y python-software-properties
+RUN apt-get install -y software-properties-common
+RUN add-apt-repository -y ppa:openjdk-r/ppa
+RUN apt-get update
 RUN apt-get install -y openjdk-8-jdk
 
 # adv account (password: adv)
