@@ -2,6 +2,10 @@ FROM ubuntu:14.04
 
 MAINTAINER Advantech
 
+RUN apt-get install -y python-software-properties
+RUN apt-get install -y software-properties-common
+RUN add-apt-repository -y ppa:openjdk-r/ppa
+
 # yocto
 RUN apt-get update
 RUN apt-get install -y gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev xterm
@@ -30,12 +34,7 @@ RUN apt-get install -y ftp
 # jenkins
 RUN apt-get install -y openssh-server
 RUN mkdir /var/run/sshd
-#RUN echo "deb http://cn.archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse" >> /etc/apt/sources.list
-RUN apt-get install -y python-software-properties
-RUN apt-get install -y software-properties-common
-RUN add-apt-repository -y ppa:webupd8team/java
-RUN apt-get update
-RUN apt-get install -y oracle-java8-installer
+RUN apt-get install -y openjdk-8-jdk
 
 # adv account (password: adv)
 RUN useradd -m -k /home/adv adv -p ajLGz61mdCP76 -s /bin/bash -G sudo
