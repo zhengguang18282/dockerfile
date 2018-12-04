@@ -31,9 +31,9 @@ RUN apt-get update
 RUN apt-get install -y subversion
 
 # git update
-RUN add-apt-repository ppa:git-core/ppa
-RUN apt-get update
-RUN apt-get install -y git
+#RUN add-apt-repository ppa:git-core/ppa
+#RUN apt-get update
+#RUN apt-get install -y git
 
 # tools
 RUN apt-get install -y vim
