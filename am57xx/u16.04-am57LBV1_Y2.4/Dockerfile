@@ -3,12 +3,12 @@ FROM ubuntu:16.04
 MAINTAINER Advantech
 
 # update
-ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
-RUN apt-get install -y apt-utils sudo
 RUN apt-get install -y locales curl git build-essential python diffstat texinfo gawk chrpath dos2unix wget unzip socat doxygen libc6 libncurses5 libstdc++6 libz1
 
+ENV DEBIAN_FRONTEND noninteractive
 RUN dpkg-reconfigure dash
+RUN apt-get install -y apt-utils sudo
 
 # jenkins
 RUN apt-get install -y openssh-server
