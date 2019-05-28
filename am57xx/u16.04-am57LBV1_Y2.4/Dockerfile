@@ -4,10 +4,11 @@ MAINTAINER Advantech
 
 # update
 RUN apt-get update
+RUN apt-get install -y apt-utils sudo
+RUN apt-get install -y curl git build-essential python diffstat texinfo gawk chrpath dos2unix wget unzip socat doxygen libc6 libncurses5 libstdc++6 libz1
 
-RUN apt-get install -y apt-utils curl git build-essential python diffstat texinfo gawk chrpath dos2unix wget unzip socat doxygen libc6 libncurses5 libstdc++6 libz1
-
-RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure dash
+ENV DEBIAN_FRONTEND noninteractive
+RUN dpkg-reconfigure dash
 
 # jenkins
 RUN apt-get install -y openssh-server
