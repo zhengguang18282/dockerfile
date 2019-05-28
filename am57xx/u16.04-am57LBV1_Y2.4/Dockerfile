@@ -3,17 +3,16 @@ FROM ubuntu:16.04
 MAINTAINER Advantech
 
 # update
+ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
+RUN apt-get install -y apt-utils sudo
 RUN apt-get install -y locales curl git build-essential python diffstat texinfo gawk chrpath dos2unix wget unzip socat doxygen libc6 libncurses5 libstdc++6 libz1
 
-ENV DEBIAN_FRONTEND noninteractive
 RUN dpkg-reconfigure dash
-RUN apt-get install -y apt-utils sudo
 
 # jenkins
 RUN apt-get install -y openssh-server
 RUN mkdir /var/run/sshd
-RUN apt-get update
 
 # openjdk
 RUN apt-get update
@@ -49,4 +48,8 @@ RUN sudo locale-gen en_US.UTF-8
 RUN sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 ENV LANG="en_US.UTF-8"
 
+RUN wget https://releases.linaro.org/components/toolchain/binaries/7.2-2017.11/arm-linux-gnueabihf/gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabihf.tar.xz
+RUN tar -Jxvf gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabihf.tar.xz -C $HOME
+RUN wget https://releases.linaro.org/components/toolchain/binaries/7.2-2017.11/aarch64-linux-gnu/gcc-linaro-7.2.1-2017.11-x86_64_aarch64-linux-gnu.tar.xz
+RUN tar -Jxvf gcc-linaro-7.2.1-2017.11-x86_64_aarch64-linux-gnu.tar.xz -C $HOME
 
