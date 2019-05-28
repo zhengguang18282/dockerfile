@@ -35,7 +35,9 @@ RUN git config --global user.name "Your Name"
 RUN git config --global color.ui "auto"
 
 # repo
-RUN sudo chown adv:adv -R ${HOME}
+RUN pwd
+RUN echo HOME=${HOME}
+RUN sudo chown adv:adv -R /home/adv
 RUN mkdir -p ${HOME}/bin
 RUN curl https://storage.googleapis.com/git-repo-downloads/repo > ${HOME}/bin/repo
 RUN chmod a+x ${HOME}/bin/repo
