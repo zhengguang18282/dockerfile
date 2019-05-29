@@ -50,6 +50,7 @@ RUN wget https://releases.linaro.org/components/toolchain/binaries/7.2-2017.11/a
 RUN tar -Jxvf gcc-linaro-7.2.1-2017.11-x86_64_aarch64-linux-gnu.tar.xz -C $HOME
 RUN ls $HOME
 RUN rm gcc-linaro-7.2.1-2017.11-x86_64_aarch64-linux-gnu.tar.xz
+RUN sync
 
 # git config
 RUN git config --global user.email "you@example.com"
