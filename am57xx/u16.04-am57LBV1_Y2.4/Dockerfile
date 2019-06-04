@@ -3,12 +3,9 @@ FROM ubuntu:16.04
 MAINTAINER Advantech
 
 # update
-ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 RUN apt-get install -y apt-utils sudo
 RUN apt-get install -y locales curl cpio git build-essential python diffstat texinfo gawk chrpath dos2unix wget unzip socat doxygen lib32stdc++6 lib32z1 lib32ncurses5
-
-RUN dpkg-reconfigure dash
 
 # jenkins
 RUN apt-get install -y openssh-server
@@ -48,3 +45,5 @@ RUN export TOOLCHAIN_PATH_ARMV8=$HOME/gcc-linaro-7.2.1-2017.11-x86_64_aarch64-li
 RUN sudo locale-gen en_US.UTF-8
 RUN sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 ENV LANG="en_US.UTF-8"
+
+RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure dash
