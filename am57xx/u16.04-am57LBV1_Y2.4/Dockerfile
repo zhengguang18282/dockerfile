@@ -46,4 +46,4 @@ RUN sudo locale-gen en_US.UTF-8
 RUN sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 ENV LANG="en_US.UTF-8"
 
-RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure dash
+RUN sudo DEBIAN_FRONTEND=noninteractive dpkg-reconfigure dash
