@@ -38,8 +38,8 @@ RUN wget https://releases.linaro.org/components/toolchain/binaries/7.2-2017.11/a
 RUN tar -Jxvf gcc-linaro-7.2.1-2017.11-x86_64_aarch64-linux-gnu.tar.xz -C $HOME
 RUN rm gcc-linaro-7.2.1-2017.11-x86_64_aarch64-linux-gnu.tar.xz
 
-RUN export TOOLCHAIN_PATH_ARMV7=$HOME/gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabihf
-RUN export TOOLCHAIN_PATH_ARMV8=$HOME/gcc-linaro-7.2.1-2017.11-x86_64_aarch64-linux-gnu
+ENV TOOLCHAIN_PATH_ARMV7=$HOME/gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabihf
+ENV TOOLCHAIN_PATH_ARMV8=$HOME/gcc-linaro-7.2.1-2017.11-x86_64_aarch64-linux-gnu
 
 # locale
 RUN sudo locale-gen en_US.UTF-8
