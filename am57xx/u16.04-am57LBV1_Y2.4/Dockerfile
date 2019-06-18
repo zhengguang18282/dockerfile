@@ -26,6 +26,9 @@ RUN echo "adv ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 WORKDIR /home/adv
 USER adv
 
+ENV DEBIAN_FRONTEND noninteractive
+RUN sudo dpkg-reconfigure dash
+
 # git config
 RUN git config --global user.email "you@example.com"
 RUN git config --global user.name "Your Name"
@@ -46,4 +49,3 @@ RUN sudo locale-gen en_US.UTF-8
 RUN sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 ENV LANG="en_US.UTF-8"
 
-RUN sudo DEBIAN_FRONTEND=noninteractive dpkg-reconfigure dash
