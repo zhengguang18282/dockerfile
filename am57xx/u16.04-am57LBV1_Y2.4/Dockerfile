@@ -17,6 +17,12 @@ RUN apt-get install -y openjdk-8-jdk
 # crc32
 RUN apt-get install -y libarchive-zip-perl
 
+# make /bin/sh symlink to bash instead of dash:
+# To set this particular option to false:
+RUN echo "dash dash/sh boolean false" | debconf-set-selections
+# and to actually reconfigure the package:
+RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure dash
+
 # adv account (password: adv)
 RUN useradd -m -k /home/adv adv -p ajLGz61mdCP76 -s /bin/bash -G sudo
 RUN chmod +s /usr/sbin/sshd
@@ -25,9 +31,6 @@ RUN chmod +s /usr/sbin/sshd
 RUN echo "adv ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 WORKDIR /home/adv
 USER adv
-
-ENV DEBIAN_FRONTEND noninteractive
-RUN sudo dpkg-reconfigure dash
 
 # git config
 RUN git config --global user.email "you@example.com"
