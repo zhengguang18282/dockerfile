@@ -57,7 +57,7 @@ WORKDIR /home/adv/tisdk
 RUN ./oe-layertool-setup.sh -f configs/processor-sdk/processor-sdk-05.03.00.07-config.txt 
 WORKDIR /home/adv/tisdk/build 
 RUN . conf/setenv 
-RUN MACHINE=am335xx-evm bitbake arago-core-tisdk-image
+RUN MACHINE=am335x-evm bitbake arago-core-tisdk-image
 
 RUN cp /home/adv/tisdk/build/arago-tmp-external-linaro-toolchain/deploy/images/am335x-evm/processor-sdk-linux-image-am335x-evm.tar.xz /home/adv
 RUN rm -r /home/adv/gcc-linaro-7.2.1-2017.11-x86_64_aarch64-linux-gnu  /home/adv/gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabihf tisdk
