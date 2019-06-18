@@ -56,7 +56,11 @@ RUN git clone git://arago-project.org/git/projects/oe-layersetup.git tisdk
 WORKDIR /home/adv/tisdk
 RUN ./oe-layertool-setup.sh -f configs/processor-sdk/processor-sdk-05.03.00.07-config.txt 
 WORKDIR /home/adv/tisdk/build 
-RUN . conf/setenv 
+ENV BB_ENV_EXTRAWHITE="MACHINE DISTRO TCMODE TCLIBC http_proxy ftp_proxy https_proxy all_proxy ALL_PROXY no_proxy SSH_AGENT_PID SSH_AUTH_SOCK BB_SRCREV_POLICY SDKMACHINE BB_NUMBER_THREADS PARALLEL_MAKE GIT_PROXY_COMMAND GIT_PROXY_IGNORE SOCKS5_PASSWD SOCKS5_USER OEBASE META_SDK_PATH TOOLCHAIN_TYPE TOOLCHAIN_BRAND TOOLCHAIN_BASE TOOLCHAIN_PATH TOOLCHAIN_PATH_ARMV5 TOOLCHAIN_PATH_ARMV7 TOOLCHAIN_PATH_ARMV8 EXTRA_TISDK_FILES TISDK_VERSION ARAGO_BRAND ARAGO_RT_ENABLE ARAGO_SYSTEST_ENABLE ARAGO_KERNEL_SUFFIX TI_SECURE_DEV_PKG_CAT TI_SECURE_DEV_PKG_AUTO TI_SECURE_DEV_PKG_K3 ARAGO_SYSVINIT SYSFW_FILE"
+ENV BUILDDIR="/home/adv/tisdk/build" 
+ENV OEBASE="/home/adv/tisdk"
+ENV OLDPWD="/home/adv/tisdk"
+ENV PATH="/home/adv/tisdk/sources/meta-ros/scripts:/home/adv/tisdk/sources/meta-browser/scripts:/home/adv/tisdk/sources/oe-core/scripts:/home/adv/tisdk/sources/bitbake/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 RUN MACHINE=am335x-evm bitbake arago-core-tisdk-image
 
 RUN cp /home/adv/tisdk/build/arago-tmp-external-linaro-toolchain/deploy/images/am335x-evm/processor-sdk-linux-image-am335x-evm.tar.xz /home/adv
