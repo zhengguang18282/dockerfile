@@ -42,4 +42,7 @@ RUN sudo locale-gen en_US.UTF-8
 RUN sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 ENV LANG="en_US.UTF-8"
 
+RUN wget -O "/home/adv/check_md5.sh" "https://sh-ctfs.ftn.qq.com/ftn_handler/85e16967eb3841e534417fd242a412c9d2e614a91bb6b3f47cdb5c1f707136833700f2ffee5701f945b2f021c779a973abbf7c1b4a48a4f7fe4e4c357fdcad26/?fname=check_md5.sh&k=78623032dfc9c7c6dd2d8a1016370a165b04035605020b0914515500041a0c0100571d5054035b14095a075351035a0f0f000854303b385a510753596f5a5c0c171158320d&code=9b020789&fr=00&&txf_fid=7d52eb08cecff887318b3ec7ec76c7b670082504&xffz=273"
+RUN ls -al
+RUN echo pwd=$PWD
 
