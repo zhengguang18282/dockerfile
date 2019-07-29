@@ -42,15 +42,7 @@ RUN sudo locale-gen en_US.UTF-8
 RUN sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 ENV LANG="en_US.UTF-8"
 
-RUN wget https://releases.linaro.org/components/toolchain/binaries/7.2-2017.11/arm-linux-gnueabihf/gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabihf.tar.xz
-RUN tar -Jxvf gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabihf.tar.xz -C $HOME
-RUN rm gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabihf.tar.xz
-RUN wget https://releases.linaro.org/components/toolchain/binaries/7.2-2017.11/aarch64-linux-gnu/gcc-linaro-7.2.1-2017.11-x86_64_aarch64-linux-gnu.tar.xz
-RUN tar -Jxvf gcc-linaro-7.2.1-2017.11-x86_64_aarch64-linux-gnu.tar.xz -C $HOME
-RUN rm gcc-linaro-7.2.1-2017.11-x86_64_aarch64-linux-gnu.tar.xz
+RUN wget -O "linux-devkit.sh" https://sh-ctfs.ftn.qq.com/ftn_handler/3659de49c32f3d626b46bb56385cd82b7fd937a1ca31f783a1a31e77131c3487443b2d228c84a6d830e16f8e1c0d0a52194982039d34146c3df513edacfec418/?fname=linux-devkit.sh&k=263132306263b2d9867e88121538511b50535606045c56044f065105571557035b091f08050b561906060401510b530756015606333763580b5f47481e5c06420958461e40506309&code=b12038c4&fr=00&&txf_fid=4d9420b2e9d3707c41799d408d84fd0ea6bc5937&xffz=305046703 
 
-ENV TOOLCHAIN_PATH_ARMV7=/home/adv/gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabihf
-ENV TOOLCHAIN_PATH_ARMV8=/home/adv/gcc-linaro-7.2.1-2017.11-x86_64_aarch64-linux-gnu
+RUN RUN sh -c '/bin/echo -e "\n\n" | sh linux-devkit.sh'
 
-
-RUN git clone https://github.com/zhengguang18282/linux-devkit.git && cd /home/adv/linux-devkit && git checkout arago-2018.10 
