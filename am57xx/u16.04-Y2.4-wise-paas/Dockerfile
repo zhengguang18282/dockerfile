@@ -46,9 +46,9 @@ RUN wget -O "check_md5.sh" https://sh-ctfs.ftn.qq.com/ftn_handler/85e16967eb3841
 RUN wget -O "linux-devkit.sh" https://sh-ctfs.ftn.qq.com/ftn_handler/3659de49c32f3d626b46bb56385cd82b7fd937a1ca31f783a1a31e77131c3487443b2d228c84a6d830e16f8e1c0d0a52194982039d34146c3df513edacfec418/?fname=linux-devkit.sh&k=263132306263b2d9867e88121538511b50535606045c56044f065105571557035b091f08050b561906060401510b530756015606333763580b5f47481e5c06420958461e40506309&code=b12038c4&fr=00&&txf_fid=4d9420b2e9d3707c41799d408d84fd0ea6bc5937&xffz=305046703 
 
 RUN sleep 20
-RUN sudo chmod 777 check_md5.sh
-RUN /home/adv/check_md5.sh
-RUN sudo chmod 777 linux-devkit.sh
-RUN sh -c '/bin/echo -e "\n\n" | sh linux-devkit.sh'
-RUN rm linux-devkit.sh check_md5.sh
+RUN sudo chmod 777 /home/adv/check_md5.sh
+RUN sh -c /home/adv/check_md5.sh
+RUN sudo chmod 777 /home/adv/linux-devkit.sh
+RUN sh -c '/bin/echo -e "\n\n" | sh /home/adv/linux-devkit.sh'
+RUN rm /home/adv/linux-devkit.sh /home/adv/check_md5.sh
 
