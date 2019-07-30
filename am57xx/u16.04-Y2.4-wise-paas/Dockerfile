@@ -47,5 +47,7 @@ RUN wget -O "/home/adv/linux-devkit.sh" "https://sh-ctfs.ftn.qq.com/ftn_handler/
 #RUN ls -al
 #RUN echo pwd=$PWD
 
-RUN md5sum /home/adv/linux-devkit.sh
+RUN chmod 777 /home/adv/linux-devkit.sh
+RUN sh -c '/bin/echo -e "\n\n" | sh /home/adv/linux-devkit.sh'
+RUN rm /home/adv/linux-devkit.sh
 
