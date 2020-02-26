@@ -49,7 +49,7 @@ ENV LANG="en_US.UTF-8"
 #RUN ls -al
 #RUN echo pwd=$PWD
 
-RUN chmod 777 /home/adv/linux-devkit.sh
-RUN sh -c '/bin/echo -e "\n\n" | sh /home/adv/linux-devkit.sh'
-RUN rm /home/adv/linux-devkit.sh
+#RUN chmod 777 /home/adv/linux-devkit.sh
+#RUN sh -c '/bin/echo -e "\n\n" | sh /home/adv/linux-devkit.sh'
+#RUN rm /home/adv/linux-devkit.sh
 
