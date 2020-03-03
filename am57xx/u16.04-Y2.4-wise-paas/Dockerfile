@@ -43,13 +43,13 @@ RUN sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 ENV LANG="en_US.UTF-8"
 
 
-#RUN wget -O "/home/adv/linux-devkit.sh" "https://sh-ctfs.ftn.qq.com/ftn_handler/f31ada45e5e29dc9c6c7c23978cf09abee8c720fffa5a32a24e1ee79d073b26591724a7c1bcaddc60beaadb9dc126f3b16c08560b75a755ffb62290557333e43/?fname=linux-devkit.sh&k=22626433cc4b608d822dde111f31504c54565d0a085053524b5400000c1c5602520149515d57574e07515c510f55575556525251393e620f0f0c114b145507150d0b101d4a59625e&code=fbd391bc&fr=00&&txf_fid=5db6f683a69c8373cf61a1f825e81c10cd7440a1&xffz=301827339"
+RUN wget -O "/home/adv/linux-devkit.sh" "https://sh-ctfs.ftn.qq.com/ftn_handler/f31ada45e5e29dc9c6c7c23978cf09abee8c720fffa5a32a24e1ee79d073b26591724a7c1bcaddc60beaadb9dc126f3b16c08560b75a755ffb62290557333e43/?fname=linux-devkit.sh&k=22626433cc4b608d822dde111f31504c54565d0a085053524b5400000c1c5602520149515d57574e07515c510f55575556525251393e620f0f0c114b145507150d0b101d4a59625e&code=fbd391bc&fr=00&&txf_fid=5db6f683a69c8373cf61a1f825e81c10cd7440a1&xffz=301827339"
 
 
 #RUN ls -al
 #RUN echo pwd=$PWD
 
-#RUN chmod 777 /home/adv/linux-devkit.sh
-#RUN sh -c '/bin/echo -e "\n\n" | sh /home/adv/linux-devkit.sh'
-#RUN rm /home/adv/linux-devkit.sh
+RUN chmod 777 /home/adv/linux-devkit.sh
+RUN sh -c '/bin/echo -e "\n\n" | sh /home/adv/linux-devkit.sh'
+RUN rm /home/adv/linux-devkit.sh
 
